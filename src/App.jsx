@@ -68,6 +68,16 @@ const Questions = [
       answers: ["pen", "chair", "spoon"],
       correctAnswer: "pen",
    },
+   {
+      question: "Which of the following is worn on feet?",
+      answers: ["shoes", "singlet", "suits"],
+      correctAnswer: "shoes",
+   },
+   {
+      question: "Which one of these is the main ingredient for bread?",
+      answers: ["salt", "molk", "flour"],
+      correctAnswer: "flour",
+   },
 ];
 
 function App() {
@@ -101,7 +111,7 @@ function App() {
    return (
       <div className="">
          {Showscore ? (
-            <YScore yourscore={Score} />
+            <YScore yourscore={Score} Questions={Questions} />
          ) : (
             <div className="flex items-center justify-center p-0 h-[100vh] text-[#040a1c]">
                <section className="min-w-[18rem] w-[18rem] m-auto border h-[15rem] min-h-[15rem] pt-2 box bg-[#e6e4e4] rounded-[4px] p-0 flex flex-col">
@@ -128,8 +138,20 @@ function App() {
    );
 }
 
-export const YScore = ({yourscore}) => {
-   return <div>{yourscore}</div>;
+export const YScore = ({yourscore, Questions}) => {
+   return (
+      <div>
+         <div className="flex items-center justify-center p-0 h-[100vh] text-[#040a1c]">
+            <section className="min-w-[18rem] w-[18rem] m-auto border h-[15rem] min-h-[15rem] pt-2 box bg-[#e6e4e4] rounded-[4px] p-0 flex flex-col items-center justify-center ">
+               <p className="sora font-bold text-center">
+                  you scored {yourscore}/{Questions.length}
+               </p>
+               <br />
+               <p className="sora font-bold text-center">{yourscore < 15 ? "You can do better🙄" : "excellent!!"}</p>
+            </section>
+         </div>
+      </div>
+   );
 };
 
 export default App;
