@@ -43,23 +43,27 @@ function App() {
       }
    };
    return (
-      <div className=" text-red-500">
+      <div className="">
          {Showscore ? (
             "score"
          ) : (
-            <div className="flex items-center justify-center h-[100vh]">
-               <div className="min-w-[23rem] m-auto border min-h-[15rem] box bg-[#e6e4e4] p-2 rounded-[4px]">
-                  <p>{Questions[Question].question}</p>
-                  <ol>
+            <div className="flex items-center justify-center p-0 h-[100vh] text-[#040a1c]">
+               <section className="min-w-[18rem] w-[18rem] m-auto border h-[15rem] min-h-[15rem] pt-2 box bg-[#e6e4e4] rounded-[4px] p-0 flex flex-col">
+                  <div className=" border-blue- border-solid border-[2px] h-[5rem] rounded-bl-[16px] px-2">
+                     <h3 className="font-bold sora text-1xl text-left">Question {Question + 1}/15 </h3>
+                     <p className="sora text-xs pt-2 ">.{Questions[Question].question}</p>
+                  </div>
+                  {/* answers */}
+                  <ol className="flex flex-col text-left border-red- border-solid p-2 justify-center space-y-1 border-[2px] flex-grow h-inherit w-full rounded-t-[16px] bg-cyan-500">
                      {Questions[Question].answers.map((item, index) => {
                         return (
-                           <li key={index} onClick={() => handleanswer(item)}>
+                           <li className=" border-solid border-2 py-2 rounded-lg pl-2 sora text-xs hover:bg-cyan-600" key={index} onClick={() => handleanswer(item)}>
                               {item}
                            </li>
                         );
                      })}
                   </ol>
-               </div>
+               </section>
             </div>
          )}
       </div>
