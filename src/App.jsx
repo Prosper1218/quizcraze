@@ -60,7 +60,7 @@ const Questions = [
    },
    {
       question: "What day comes after sunday?",
-      answers: ["wednesday", "moday", "friday"],
+      answers: ["wednesday", "monday", "friday"],
       correctAnswer: "monday",
    },
    {
@@ -75,7 +75,7 @@ const Questions = [
    },
    {
       question: "Which one of these is the main ingredient for bread?",
-      answers: ["salt", "molk", "flour"],
+      answers: ["salt", "milk", "flour"],
       correctAnswer: "flour",
    },
 ];
@@ -98,7 +98,7 @@ function App() {
       //    console.log("wrong");
       //   //  setQuestion(Question + 1 < Questions.length ? setScore(true) : setQuestion(Question + 1));
       // }
-      item === Questions[Question].correctAnswer.toLocaleLowerCase() && setScore(Score + 1);
+      item === Questions[Question].correctAnswer && setScore(Score + 1);
       const nextQ = Question + 1;
 
       if (nextQ < Questions.length) {
