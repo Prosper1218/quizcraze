@@ -19,7 +19,7 @@ const Questions = [
       correctAnswer: "washing-machine",
    },
    {
-      question: "What do bees produce?",
+      question: "What does bees produce?",
       answers: ["bread", "cheese", "honey"],
       correctAnswer: "honey",
    },
@@ -105,7 +105,11 @@ function App() {
          setQuestion(nextQ);
       } else {
          setShowscore(true);
-         Score === Questions.length - 1 && setShowscore(true);
+         //  this method just checks if the current score is equal to the length of the questions, if it is, we setshowscore to true. WORKS
+         Score === Questions.length && setShowscore(true);
+         //  while this method checks if the score plus 1 is greater than the length of the question minus 1, if it is then we setshowscore to true. WORKs TOO
+         //
+         //  Score + 1 > Questions.length - 1 && setShowscore(true);
       }
    };
    return (
@@ -147,7 +151,7 @@ export const YScore = ({yourscore, Questions}) => {
                   you scored {yourscore}/{Questions.length}
                </p>
                <br />
-               <p className="sora font-bold text-center">{yourscore < 15 ? "You can do better🙄" : "excellent!!"}</p>
+               <p className="sora font-bold text-center">{yourscore < Questions.length ? "You can do better🙄" : "excellent!!"}</p>
             </section>
          </div>
       </div>
